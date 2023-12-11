@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="css/maker.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+        integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"
+        integrity="sha256-srhz/t0GOrmVGZryG24MVDyFDYZpvUH2+dnJ8FbpGi0=" crossorigin="anonymous"></script>
+</head>
+<body>
+        <div class="wrapper">
+    <div class="prescription_form">
+        <table class="prescription" data-prescription_id="<?php echo $presc->prescription_id; ?>" border="1">
+            <tbody>
+                <tr height="15%">
+                    <td colspan="2">
+                       <div class="header">
+                               <img src="images/doctor.jpg" alt="Header Image" style="width: 100%;  height: auto;">
+                            </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="40%">
+                        <div class="desease_details">
+                            <div class="symptoms">
+                                <h4 class="d-header">Symptoms</h4>
+                                <ul class="symp" data-toggle="tooltip" data-placement="bottom" title="Click to edit."
+                                    contenteditable="true">
+                                </ul>
+                                <div class="symp_action">
+                                    <button id="symp_save" data-prescription_id="<?php echo $presc->prescription_id; ?>" class="btn btn-sm btn-success save">Save</button>
+                                    <button class="btn btn-sm btn-danger cancel-btn">Cancel</button>
+                                </div>
+                            </div>
+
+                            <div class="advice">
+                                <h4 class="d-header">Advice</h4>
+                                <p class="adv_text" style="outline: 0;" data-toggle="tooltip"
+                                    data-placement="bottom" title="Click to edit." contenteditable="true">
+                                </p>
+                                <div class="adv_action">
+                                    <button id="adv_save" data-prescription_id="<?php echo $presc->prescription_id; ?>" class="btn btn-sm btn-success save">Save</button>
+                                    <button class="btn btn-sm btn-danger cancel-btn">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td width="60%" valign="top">
+                        <span style="font-size: 3em;">R<sub>x</sub></span>
+                        <hr />
+                        <div class="medicine">
+                            <section class="med_list">
+                            </section>
+                            <div id="add_med" data-toggle="tooltip" data-placement="right"
+                                title="Click anywhere on the blank space to add more.">Click to add...</div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="button_group">
+            <button class="issue_prescription btn btn-success">Issue</button>
+            <!-- <button class="pdf_prescription btn btn-danger">PDF</button> -->
+        </div>
+        <div id="snacking" style="display: none;">Saving...</div>
+        <div id="snacked" style="display: none;"> Saved!</div>
+    </div>
+</div>
+
+<script id="new_medicine" type="text/template">
+    <div class="med">
+        &#9899; <input class="med_name" data-med_id="{{med_id}}" data-toggle="tooltip"
+            title="Click to edit..." placeholder="Enter medicine name"/>
+        <div class="med_name_action">
+            <button data-med_id="{{med_id}}" class="btn btn-sm btn-success save">Save</button>
+            <button class="btn btn-sm btn-danger cancel-btn">Cancel</button>
+        </div>
+        <div class="schedual">
+            <div class="sc_time folded">
+                <select class="sc" data-med_id="{{med_id}}">
+                  <option value="1+1+1" selected>1+1+1</option>
+                  <option value="1+0+1">1+0+1</option>
+                  <option value="0+1+1">1+1+1</option>
+                  <option value="1+0+0">1+1+1</option>
+                  <option value="0+0+1">1+1+1</option>
+                  <option value="1+1+1+1">1+1+1+1</option>
+                </select>
+                <div class="med_when_action">
+                    <button data-med_id="{{med_id}}"
+                        class="btn btn-sm btn-success save">&check;</button>
+                </div>
+            </div>
+            <div class="taking_time select folded">
+                <select class="meal" data-med_id="{{med_id}}">
+                    <option value="1" selected>After Meal</option>
+                    <option value="2">Before Meal</option>
+                    <option value="3">Take any time</option>
+                </select>
+                <div class="med_meal_action">
+                    <button data-med_id="{{med_id}}"
+                        class="btn btn-sm btn-success save">&check;</button>
+                </div>
+            </div>
+        </div>
+        <div class="med_footer">
+            <div class="period folded">
+                Take for <input class="med_period" type="text" data-med_id="{{med_id}}"
+                    placeholder="? days/weeks..." />
+                <div class="med_period_action">
+                    <button data-med_id="{{med_id}}"
+                        class="btn btn-sm btn-success save">&check;</button>
+                </div>
+                <span class="date"></span>
+            </div>
+            <div class="del_action">
+                <button data-med_id="{{med_id}}" class="btn btn-sm btn-danger delete"><i class="fa fa-trash"
+                        aria-hidden="true"></i></button>
+            </div>
+        </div>
+        <hr />
+    </div>
+</script>
+ <script id="new_medicine" type="text/template">
+        <!-- Your existing Mustache template content -->
+    </script>
+
+    <script src="js/maker.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+
+            // Function to print the prescription
+            function printPrescription() {
+                window.print();
+            }
+
+            // Event handler for the "Issue" button
+            $(document).on("click", ".issue_prescription", function () {
+                // Remove tests
+                $(".med_list").find("[data-med_id='test']").remove();
+                $(".symp").find("li:contains('test')").remove();
+                $(".adv_text").find("li:contains('test')").remove();
+
+                // Save prescription to HTML file
+                savePrescriptionToFile();
+
+                // Save prescription as PDF
+                savePrescriptionAsPDF();
+
+                // Print the prescription
+                printPrescription();
+            });
+        });
+        function savePrescriptionToFile() {
+    // Your logic to save the prescription to a file goes here
+    // For example, you can create a Blob and download it as a file
+    const prescriptionContent = document.querySelector(".prescription_form").outerHTML;
+    const blob = new Blob([prescriptionContent], { type: "text/html" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "prescription.html";
+    link.click();
+    URL.revokeObjectURL(link.href);
+}
+
+    </script>
+</body>
+</html>

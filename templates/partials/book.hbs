@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>ClinniConnect</title>
+
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- font awesome style -->
+  <link href="css/font-awesome.min.css" rel="stylesheet" />
+  <!-- nice select -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha256-mLBIhmBvigTFWPSCtvdu6a76T+3Xyt+K571hupeFLg4=" crossorigin="anonymous" />
+  <!-- datepicker -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css">
+  <!-- Custom styles for this template -->
+  <link href="css/mainStyle.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  </head>
+  <body>
+<section class="book_section layout_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <input type="hidden" id="selectedSkills" name="selectedSkills">
+                <h4>BOOK <span>APPOINTMENT</span></h4>
+                <form class="book_section layout_padding" id="appointmentForm" action="/book" method="post">
+                    <div class="form-row">
+                        <div class="form-group col-lg-4">
+                            <label for="inputPatientName">Patient Name</label>
+                            <input type="text" class="form-control" id="inputPatientName" name="patientname" placeholder="Enter Patient Details" >
+                        </div>
+                        <div class="form-group col-lg-4">
+                            <label >Doctor's Name</label>
+                            <input name="doctorname" class="form-control wide" id="inputDoctorName" >
+                            
+                            </input>
+                        </div>
+                        <div class="form-group col-lg-4">
+                            <label for="inputClinicName">Clinic's Name</label>
+                            <input name="clinicname" class="form-control wide" id="inputClinicName">
+                               
+                            </input >
+                        </div>
+                    </div>
+                
+                         <label for="inputSlotName">Select Time Slot:</label><br>
+                                <div id="time"> 
+                                     <input type="radio" id="slot1" name="timeslot" value="slot1">
+                                <label for="slot1">10 a.m to 12 p.m</label><br>
+                                <input type="radio" id="slot2" name="timeslot" value="slot2">
+                                <label for="slot2">12 p.m to 2 p.m</label><br>
+                                <input type="radio" id="slot3" name="timeslot" value="slot3">
+                                <label for="slot3">5 p.m to 7 p.m</label>
+                                <br>
+</div>
+
+                    <br>
+                    <div class="form-row">
+                        <div class="form-group col-lg-4">
+                            <label for="inputPhone">Phone Number</label>
+                             <input type="text" class="form-control"  name="phonenumber" maxlength="10" placeholder="Phone Number">
+                        </div>
+                        <div class="form-group col-lg-4">
+                            <label for="inputSymptoms">Symptoms</label>
+                            <input type="text" class="form-control" id="inputSymptoms" name="symptoms" >
+                        </div>
+                        <div class="form-group col-lg-4">
+                            <label for="inputDate">Choose Date</label>
+                            <div class="input-group date" id="inputDate" data-date-format="mm-dd-yyyy">
+                                <input type="date" class="form-control" name="appointmentdate" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-box">
+                        <button type="submit" class="btn" onclick="check()">BOOK NOW</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
+<!-- end book section -->

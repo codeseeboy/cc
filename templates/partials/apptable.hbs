@@ -1,0 +1,54 @@
+<div class="details" id="allapp" >
+                <div class="recentOrders">
+                    <div class="cardHeader">
+                        <h2>Recent Appointments</h2>
+                        <a href="#" class="btn">View All</a>
+                    </div>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                   <th>Patient Name</th>
+      <th>TimeSlot</th>
+      <th>Contact No.</th>
+      <th>Symptoms</th>
+      <th>Date</th>
+      <th>Approve</th>
+      <th>Edit</th>
+      <th>Delete</th>
+                            </tr>
+                        </thead>
+
+                      <!-- ... your HTML code ... -->
+
+<!-- In the <tbody> section -->
+<tbody>
+  {{#each x as |y|}}
+    <tr>
+      <td>{{y.patientname}}</td>
+      <td>{{y.timeslot}}</td>
+      <td>{{y.phonenumber}}</td>
+      <td>{{y.symptoms}}</td>
+      <td>{{y.appointmentdate}}</td>
+      <td><a href="#">Approve</a></td>
+      <td><a href="#">Edit</a></td>
+      <td>
+        <!-- Inside the loop that displays appointments, add a form for each appointment -->
+        <form action="/delete-appointment" method="post">
+          <!-- Use a hidden input field to store the appointment's ID -->
+          <input type="hidden" name="appointmentId" value="{{y._id}}">
+          <!-- Add a delete button or link to trigger the form submission -->
+          <button type="submit">Delete</button>
+        </form>
+      </td>
+    </tr>
+  {{/each}}
+</tbody>
+
+
+<!-- ... your HTML code ... -->
+
+                    </table>
+                </div>
+                </div>
+        

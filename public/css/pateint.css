@@ -1,0 +1,154 @@
+/* Import Google font - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.custom-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 700px;
+  width: 100%;
+  background: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  margin-top: 10%; /* You can adjust this value to move it slightly down */
+}
+
+.custom-container header {
+  font-size: 1.5rem;
+  color: #333;
+  font-weight: 500;
+  text-align: center;
+}
+.custom-container .custom-form {
+  margin-top: 30px;
+}
+.custom-form .custom-input-box {
+  width: 100%;
+  margin-top: 20px;
+}
+.custom-input-box label {
+  color: #333;
+}
+.custom-form :where(.custom-input-box input, .custom-select-box) {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  outline: none;
+  font-size: 1rem;
+  color: #707070;
+  margin-top: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0 15px;
+}
+.custom-input-box input:focus {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+.custom-form .custom-column {
+  display: flex;
+  column-gap: 15px;
+}
+.custom-form .custom-gender-box {
+  margin-top: 20px;
+}
+.custom-gender-box h3 {
+  color: #333;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+.custom-form :where(.custom-gender-option, .custom-gender) {
+  display: flex;
+  align-items: center;
+  column-gap: 50px;
+  flex-wrap: wrap;
+}
+.custom-form .custom-gender {
+  column-gap: 5px;
+}
+.custom-gender input {
+  accent-color: rgb(130, 106, 251);
+}
+.custom-form :where(.custom-gender input, .custom-gender label) {
+  cursor: pointer;
+}
+.custom-gender label {
+  color: #707070;
+}
+.custom-address :where(input, .custom-select-box) {
+  margin-top: 15px;
+}
+.custom-select-box select {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: none;
+  color: #707070;
+  font-size: 1rem;
+}
+.custom-form button {
+  height: 55px;
+  width: 100%;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-top: 30px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: rgb(130, 106, 251);
+}
+.custom-form button:hover {
+  background: rgb(88, 56, 250);
+}
+/*Responsive*/
+@media screen and (max-width: 500px) {
+  .custom-form .custom-column {
+    flex-wrap: wrap;
+    margin-top: 15px; /* Add margin-top for spacing between columns */
+  }
+  .custom-form :where(.custom-gender-option, .custom-gender) {
+    margin-top: 15px; /* Add margin-top for spacing between gender options */
+  }
+}
+nav {
+  text-align: center; /* Center the text horizontally */
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menu-item {
+  display: inline-block;
+  margin: 20px; /* Adjust this margin as needed */
+  position: relative;
+  font-size: 18px;
+  cursor: pointer;
+  text-decoration: none; /* Remove underline */
+  color: rgb(88, 56, 250); /* Set the link color */
+}
+
+.menu-item::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background-color: transparent; /* Initial border color */
+  transition: background-color 0.3s ease;
+}
+
+#add-patient:hover::before {
+  background-color: rgb(88, 56, 250); /* Hover border color */
+}

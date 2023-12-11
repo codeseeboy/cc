@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Link to Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    /* Custom button style */
+    .custom-btn {
+      background-color: #007BFF;
+      color: #fff;
+      transition: background-color 0.3s;
+    }
+
+    .custom-btn:hover {
+      background-color: #0056b3;
+    }
+
+    .error-message {
+      color: #d9534f;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <form action="/send-message" method="post">
+      <h2>Contact Us</h2>
+      <div class="form-group">
+        <label for="phoneNumber">Phone Number</label>
+        <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea class="form-control" id="message" name="message" required></textarea>
+      </div>
+      <button type="submit" class="btn custom-btn"><i class="fas fa-paper-plane"></i> Send</button>
+      <a href="admin" class="btn custom-btn"><i class="fas fa-paper-plane"></i> Back</a>
+      
+    </form>
+  </div>
+
+  <!-- Link to Bootstrap and jQuery (required for Bootstrap) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

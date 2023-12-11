@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        textarea {
+            height: 150px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Feedback Form</h2>
+        <form action="submit_feedback.php" method="post">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required>
+
+            <label for="rating">Overall Satisfaction (1-5):</label>
+            <input type="number" name="rating" id="rating" min="1" max="5" required>
+
+            <label for="likes">What do you like most?</label>
+            <textarea name="likes" id="likes" rows="4"></textarea>
+
+            <label for="improvements">Areas for Improvement:</label>
+            <textarea name="improvements" id="improvements" rows="4"></textarea>
+
+            <label for="issues">Issues/Challenges Faced:</label>
+            <textarea name="issues" id="issues" rows="4"></textarea>
+
+            <label for="comments">Additional Comments:</label>
+            <textarea name="comments" id="comments" rows="4"></textarea>
+
+            <label for="usage">How often do you use our product/service?</label>
+            <select name="usage" id="usage">
+                <option value="daily">Daily</option>
+                <option value="weekly">Weekly</option>
+                <option value="monthly">Monthly</option>
+                <option value="rarely">Rarely</option>
+                <option value="one-time">This was a one-time use</option>
+            </select>
+
+            <label for="recommend">Would you recommend us to others?</label>
+            <input type="radio" name="recommend" value="yes" id="recommend-yes"> Yes
+            <input type="radio" name="recommend" value="no" id="recommend-no"> No
+
+            <label for="testing">Willingness to participate in user testing or provide further feedback:</label>
+            <input type="radio" name="testing" value="yes" id="testing-yes"> Yes
+            <input type="radio" name="testing" value="no" id="testing-no"> No
+
+            <input type="submit" value="Submit Feedback">
+               <button type="button" onclick="gogBack()">Back</button>
+        </form>
+    </div>
+    <script src="js/custom.js"></script>
+</body>
+</html>

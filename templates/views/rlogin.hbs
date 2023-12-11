@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Authentication</title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">  
+<link href="css/loginStyle.css"  rel="stylesheet"/>
+<link rel="icon" href="images/logo.png" type="image/x-icon">
+<link rel="shortcut icon" href="/logo" type="image/x-icon">
+</head>
+<body>
+  <div class="container">
+  
+   
+  
+    <form action="rlogin" method="post" id="login-form">
+     
+      <input type="hidden" name="login" value="1">
+       
+        <h2 id="h2login">Verify Your Phone Number</h2>
+   
+      <div class="input-container">
+        <input type="tel" id="tel"  placeholder="Enter Registered Phonenumber" name="pnumber" required>
+      </div>
+    
+      
+    
+        
+     
+      <div class="button-container">
+        <input type="submit"   value="Login Now"> </input>
+        <br>
+        <br>
+
+          <button type="button" onclick="gogBack()">Back</button>
+             
+  </div>
+          <!-- Add a new div for displaying error message -->
+        <div id="error-message" style="display: none; color: red;">Invalid Email or Password</div>
+    </div>
+
+  </form>
+  </div>
+ 
+
+</div>
+ <script src="js/signup.js"></script>
+ <script src="js/custom.js"></script>
+ <script>
+ 
+ </script>
+</body>
+</html>

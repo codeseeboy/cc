@@ -1,0 +1,219 @@
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Admin</title>
+        <!-- ======= Styles ====== -->
+    
+    <link rel="icon" href="images/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/logo" type="image/x-icon">
+    
+    <link href="css/admin.css" rel="stylesheet" />
+    <link href="css/pateint.css" rel="stylesheet" />
+
+    <!-- responsive style -->
+    
+
+    </head>
+
+    <body>
+    
+        <!-- =============== Navigation ================ -->
+       <div class="container">
+            <div class="navigation">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <span class="icon">
+                                <ion-icon name="logo-apple"></ion-icon>
+                            </span>
+                            <span class="title">Al-Shifa Clinic  Name</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="dashboard" id="dash">
+                            <span class="icon">
+                                <ion-icon name="home-outline"></ion-icon>
+                            </span>
+                            <span class="title">Dashboard</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="pat" id="patient">
+                            <span class="icon">
+                                <ion-icon name="people-outline"></ion-icon>
+                            </span>
+                            <span class="title">Patients</span>
+                            
+                            
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="appoint" id="app">
+                            <span class="icon">
+                                <ion-icon name="chatbubble-outline"></ion-icon>
+                            </span>
+                            <span class="title">Appointments</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="cert"  id="preslist" > 
+                            <span class="icon">
+                                <ion-icon name="people-outline"></ion-icon>
+                            </span>
+                            <span class="title">Create Certificate</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="sms">
+                            <span class="icon">
+                                <ion-icon name="chatbubble-outline"></ion-icon>
+                            </span>
+                            <span class="title">Messanger </span>
+                        </a>
+                    </li>
+
+                
+                    <li>
+                        <a href="pass">
+                            <span class="icon">
+                                <ion-icon name="lock-closed-outline"></ion-icon>
+                            </span>
+                            <span class="title">Password</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/logout">
+                            <span class="icon">
+                                <ion-icon name="log-out-outline"></ion-icon>
+                            </span>
+                            <span class="title">Sign Out</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- ========================= Main ==================== -->
+            <div class="main  app-list">
+                <div class="topbar">
+                    <div class="toggle">
+                        <ion-icon name="menu-outline"></ion-icon>
+                    </div>
+
+                    <div class="search">
+                        <label>
+                            <input type="text" placeholder="Search here">
+                            <ion-icon name="search-outline"></ion-icon>
+                        </label>
+                    </div>
+
+                    <div class="user">
+                        <img src="images/logo.png" alt="">
+                    </div>
+                </div>
+    <h3>
+
+    </h3>
+                <!-- ======================= Cards ================== -->
+        
+
+                <!-- ================ Order Details List ================= -->
+            
+  
+
+                    <!-- ================= New Customers ================ -->
+                    
+                <!-- =========== Scripts =========  -->
+        <script src="js/adminpage.js"></script>
+
+        <!-- ====== ionicons ======= -->
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    </body>
+
+    </html>
+  <body>
+    <div id="add">
+<div class="patdetails" id="allpatients">
+    <div class="recentOrders">
+        <div class="cardHeader">
+            <h2 >Recent Patients</h2>
+          
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Birth Date</th>
+                    <th>Gender</th>
+                    <th>Street Address</th>
+                    <th>Country</th>
+                    <th>City</th>
+                    <th>Region</th>
+                    <th>Postal Code</th>
+                    <th>Document</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+
+           <tbody>
+                        {{#each patients as |patient|}}
+                        <tr>
+                            <td hidden="true">{{patient.id}}</td>
+                            <td>{{patient.fullName}}</td>
+                            <td>{{patient.pemail}}</td>
+                            <td>{{patient.pnumber}}</td>
+                            <td>{{patient.birthDate}}</td>
+                            <td>{{patient.gender}}</td>
+                            <td>{{patient.streetAddress1}}, {{patient.streetAddress2}}</td>
+                            <td>{{patient.country}}</td>
+                            <td>{{patient.city}}</td>
+                            <td>{{patient.region}}</td>
+                            <td>{{patient.postalCode}}</td>
+                            <td>
+                                <!-- Add the following code for the document link -->
+                                {{#if patient.document}}
+                                    <a href="/uploads/{{patient.document}}" target="_blank">View Document</a>
+                                {{else}}
+                                    No Document
+                                {{/if}}
+                            </td>
+                            <td><a href="/updatepat">Edit</a></td>
+                            <!-- Inside the loop that displays patients -->
+                            <td>
+                                <form action="/delete-patient" method="post">
+                                    <!-- Use a hidden input field to store the patient's ID -->
+                                    <input type="hidden" name="patientId" value="{{patient._id}}">
+                                    <!-- Add a delete button or link to trigger the form submission -->
+                                    <button type="submit">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    
+<nav >
+  <ul>
+    <li><a class="menu-item  " id="add-patient" href="addpat">Add Patient</a></li>
+  </ul>
+</nav>
+
+
+  

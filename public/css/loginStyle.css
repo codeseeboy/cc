@@ -1,0 +1,150 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+  }
+
+  .container {
+   
+    justify-content: center;
+    align-items: center;
+    
+    width: 100%;
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    border: 1px solid #00c6a9;
+    border-radius: 5px;
+    background-color: #fff;
+    position: relative; /* Added to position the cancel button */
+  }
+
+  h2 {
+    font-size:30px;
+    margin:20px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:#333;
+    text-align:center;
+  }
+  #h2login{
+    margin-top: auto;
+    justify-content: space-between;
+    padding : 13px;
+  }
+
+  .input-container {
+    margin-bottom: 25px;
+    justify-content: space-between;
+  }
+ 
+
+  .input-container input {
+    text-decoration: none;
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #00c6a9;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    
+  }
+  .option{
+   
+    display:flex;
+    align-items:center;
+    justify-content: space-around;
+  }
+  .option a{
+      color:#0a0a0a;
+      text-decoration:none;
+  }
+  .option a:hover{
+           color:blue;
+           text-decoration: underline;
+           font-size:18px;
+           transition:0.1s ease-in;
+  }
+  .uil {
+    display:flex;
+    position:relative;
+  }
+.uil-eye {
+ margin-left:90%;
+ margin-top: -15%;
+ cursor:pointer;
+}
+.uil-eye-slash {
+  display:flex;
+ margin-left:90%;
+ margin-top: -15%;
+ cursor:pointer;
+}
+
+  .button-container {
+    text-align: center;
+  }
+
+  .button-container input {
+    font-weight: bold;
+    background: #00c6a9;
+    margin-top:30px;
+    width:100%;
+    color: #fff;
+    cursor: pointer;
+    padding : 12px 0;
+    border-radius:10px;
+    border:none;
+  }
+  .button-container input:hover{
+    
+    background-color:#333 ;
+  }
+ 
+
+  /* Style for the success message */
+  .success-message {
+    text-align: center;
+    color: green
+  
+  }
+
+
+  /* Style for the cancel button */
+  #btn-cancel {
+    font-size: 20px;
+    display:transparent;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    
+    color: #0a0a0a;
+    border: none;
+    
+    
+    cursor: pointer;
+    margin : 0px
+  }
+ 
+  #clarify{
+    text-align: center;
+    margin :15px;
+    padding:0px;
+   font-size: 15px;
+   cursor:pointer;
+  }
+  footer{
+   text-align: center;
+  }
+#SignUpbtn:hover{
+  text-decoration:underline;
+  }
+#signup-form{
+    display:none;
+}
+.terms{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}

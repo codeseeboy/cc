@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="ie=edge"
+    />
+    <link rel="stylesheet" href="css/pateint.css" />
+    <link rel="stylesheet" href="css/report.css" />
+    <link rel="icon" href="images/logo.png" type="image/x-icon">
+<link rel="shortcut icon" href="/logo" type="image/x-icon">
+  </head>
+  <body>
+    <div id="add">
+<div class="details" id="allpatients">
+    <div class="recentOrders">
+        <div class="cardHeader">
+            <h2 >Pateints Reports</h2>
+            <div class="search">
+                    <label>
+                    <input type="text" id="searchInput" placeholder="Search here">
+
+                        <ion-icon name="search-outline"></ion-icon>
+                    </label>
+                </div>
+        </div>
+ <br>
+ <br>
+        <table>
+            <thead>
+                <tr class="tables">
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    {{!-- <th>Phone Number</th> --}}
+                    <th>Birth Date</th>
+                    <th>Gender</th>
+                    {{!-- <th>Street Address</th>
+                    <th>Country</th>
+                    <th>City</th>
+                    <th>Region</th>
+                    <th>Postal Code</th> --}}
+                    <th>Document</th>
+                   
+                </tr>
+            </thead>
+
+            <tbody>
+                {{#each patients as |patient|}}
+                <tr class="patient-row">
+
+                    <td>{{patient.fullName}}</td>
+                    <td>{{patient.pemail}}</td>
+                    {{!-- <td>{{patient.pnumber}}</td> --}}
+                    <td>{{patient.birthDate}}</td>
+                    <td>{{patient.gender}}</td>
+                    {{!-- <td>{{patient.streetAddress1}}, {{patient.streetAddress2}}</td>
+                    <td>{{patient.country}}</td>
+                    <td>{{patient.city}}</td>
+                    <td>{{patient.region}}</td>
+                    <td>{{patient.postalCode}}</td> --}}
+                    <td>
+                        {{#if patient.document}}
+                        <a href="{{patient.document}}" target="_blank">View Document</a>
+                        {{else}}
+                        No Document
+                        {{/if}}
+                    </td>
+                 
+                </tr>
+                {{/each}}
+            </tbody>
+          
+        </table>
+        <br>
+        <br>
+    
+  <a href="/"  style="text-align: center;">HOME</a>
+    </div>
+</div>
+
+    
+
+
+
+   </div>
+   <script>
+  const searchInput = document.getElementById('searchInput');
+  const patientRows = document.querySelectorAll('.patient-row');
+  const tables = document.querySelectorAll('.tables');
+
+  searchInput.addEventListener('input', function () {
+    const searchTerm = searchInput.value.toLowerCase();
+
+    patientRows.forEach((row) => {
+      const fullName = row.querySelector('td:nth-child(1)').textContent.toLowerCase();
+      if (fullName.includes(searchTerm)) {
+        row.style.display = 'table-row'; // Show matching rows
+      } else {
+        row.style.display = 'none'; 
+        // Hide non-matching rows
+    
+      }
+    });
+  });
+</script>
+
+  </body>
+</html>

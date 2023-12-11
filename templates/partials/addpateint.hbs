@@ -1,0 +1,54 @@
+{{!-- <div class="details" id="allpatients">
+    <div class="recentOrders">
+        <div class="cardHeader">
+            <h2>Recent Patients</h2>
+            <a href="#" class="btn">View All</a>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Birth Date</th>
+                    <th>Gender</th>
+                    <th>Street Address</th>
+                    <th>Country</th>
+                    <th>City</th>
+                    <th>Region</th>
+                    <th>Postal Code</th>
+                    <th>Document</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {{#each z as |r|}}
+                <tr>
+                    <td>{{r.fullName}}</td>
+                    <td>{{r.pemail}}</td>
+                    <td>{{r.pnumber}}</td>
+                    <td>{{r.birthDate}}</td>
+                    <td>{{r.gender}}</td>
+                    <td>{{r.streetAddress1}}, {{patient.streetAddress2}}</td>
+                    <td>{{r.country}}</td>
+                    <td>{{r.city}}</td>
+                    <td>{{r.region}}</td>
+                    <td>{{r.postalCode}}</td>
+                    <td>
+                        {{#if r.document}}
+                        <a href="{{r.document}}" target="_blank">View Document</a>
+                        {{else}}
+                        No Document
+                        {{/if}}
+                    </td>
+                    <td><a href="#">Edit</a></td>
+                    <td><a href="#">Delete</a></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div> --}}

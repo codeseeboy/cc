@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Page</title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">  
+<link href="css/loginStyle.css"  rel="stylesheet"/>
+<link rel="icon" href="images/logo.png" type="image/x-icon">
+<link rel="shortcut icon" href="/logo" type="image/x-icon">
+</head>
+<body>
+  <div class="container">
+  
+    <a id="btn-cancel"  onclick="goToHomePage()"><i class="uil uil-times"></i> </a>
+  
+    <form action="/admin" method="post" id="admin-form">
+     
+      <input type="hidden" name="login" value="1">
+       
+        <h2 id="h2login">Admin</h2>
+   
+      <div class="input-container">
+        <input type="email" id="email"  placeholder="Enter Registered Email-ID" name="email" required>
+      </div>
+    
+      
+       <div class="input-container">
+      
+        <input type="password"  maxlength="15" placeholder="Enter password"  id="Lpassword"  name="password" >
+    </div>  
+     <div class="uil">
+          <i  id="toggler" class=" uil uil-eye password">   
+          <!-- <i  id="toggler" class="uil uil-eye-slash password"></i>   -->
+      </i></div>
+        
+     
+      <div class="button-container">
+        <input type="submit"   value="Login Now"> </input>
+        
+              
+  </div>
+          <!-- Add a new div for displaying error message -->
+        <div id="error-message" style="display: none; color: red;">Invalid Email or Password</div>
+    </div>
+
+  </form>
+  </div>
+ 
+<div class="terms">
+  <section  > 
+    <a href="termsandcondition.html"> Terms & Conditions </a>
+  </section>
+</div>
+ <script src="js/signup.js"></script>
+ <script>
+ 
+ </script>
+</body>
+</html>
